@@ -147,8 +147,8 @@ class Banner(models.Model):
 
 
 class Click(models.Model):
-    banner = models.ForeignKey(Banner, related_name="clicks")
-    user = models.ForeignKey(User, null=True, blank=True, related_name="banner_clicks")
+    banner = models.ForeignKey(Banner, related_name="clicks", help_text='clicks')
+    user = models.ForeignKey(User, null=True, blank=True, related_name="banner_clicks",  help_text='banner_clicks')
     datetime = models.DateTimeField("Clicked at", auto_now_add=True)
     ip = models.IPAddressField(null=True, blank=True)
     user_agent = models.TextField(validators=[MaxLengthValidator(1000)], null=True, blank=True)
