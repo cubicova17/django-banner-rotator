@@ -83,7 +83,7 @@ class Banner(models.Model):
     max_views = models.IntegerField(_('Max views'), default=0)
     max_clicks = models.IntegerField(_('Max clicks'), default=0)
 
-    weight = models.IntegerField(_('Weight'), help_text=_("A ten will display 10 times more often that a one."),
+    weight = models.IntegerField(_('Weight'),
         choices=[[i, i] for i in range(1, 11)], default=5)
 
     file = models.FileField(_('File'), upload_to=get_banner_upload_to)
