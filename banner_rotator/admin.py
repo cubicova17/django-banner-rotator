@@ -25,9 +25,9 @@ class CampaignBannerInline(admin.StackedInline):
     extra = 0
     readonly_fields = ['views', 'clicks']
     fields = ['is_active', 'places', 'name', 'url', 'file', 'weight', 'views', 'clicks']
-    formfield_overrides = {
-        models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
-    }
+    #formfield_overrides = {
+    #    models.ManyToManyField: {'widget': forms.CheckboxSelectMultiple},
+    #}
 
 
 class CampaignAdmin(admin.ModelAdmin):
@@ -40,16 +40,16 @@ class BannerAdmin(admin.ModelAdmin):
     list_display = ('name', 'campaign', 'weight', 'url', 'views', 'is_active')
     list_filter = ('campaign', 'places', 'is_active')
     date_hierarchy = 'created_at'
-    fieldsets = (
-        (_('Main'), {
-            'fields': ('campaign', 'places', 'name', 'url', 'url_target', 'file', 'alt'),
-        }),
-        (_('Show'), {
-            'fields': ('weight', 'views', 'max_views', 'clicks', 'max_clicks', 'start_at', 'finish_at', 'is_active'),
-        })
-    )
+    #fieldsets = (
+    #    (_('Main'), {
+    #        'fields': ('campaign', 'places', 'name', 'url', 'url_target', 'file', 'alt'),
+    #    }),
+    #    (_('Show'), {
+    #        'fields': ('weight', 'views', 'max_views', 'clicks', 'max_clicks', 'start_at', 'finish_at', 'is_active'),
+    #    })
+    #)
 
-    filter_horizontal = ('places',)
+    #filter_horizontal = ('places',)
     readonly_fields = ('views', 'clicks',)
 
     object_log_clicks_template = None
